@@ -32,18 +32,18 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Registration Form</h2>
-                    <form method="POST">
+                    <form id="registerForm" method="POST">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">first name</label>
-                                    <input class="input--style-4" type="text" name="first_name">
+                                    <input id="name" class="input--style-4" type="text" name="name">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">last name</label>
-                                    <input class="input--style-4" type="text" name="last_name">
+                                    <input id="surName" class="input--style-4" type="text" name="surName">
                                 </div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                                 <div class="input-group">
                                     <label class="label">Birthday</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
+                                        <input id="birthDay" class="input--style-4 js-datepicker" type="text" name="birthDay">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
@@ -62,11 +62,11 @@
                                     <label class="label">Gender</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender">
+                                            <input value="Male" type="radio" checked="checked" name="gender">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">Female
-                                            <input type="radio" name="gender">
+                                            <input value="Female" type="radio" name="gender">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -77,19 +77,19 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Email</label>
-                                    <input class="input--style-4" type="email" name="email">
+                                    <input id="email" class="input--style-4" type="email" name="email">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Phone Number</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input id="phone" class="input--style-4" type="text" name="phone">
                                 </div>
                             </div>
                         </div>
                         <div class="input-group">
                             <label class="label">Password</label>
-                            <input class="input--style-4" type="password" name="password" />
+                            <input id="password" class="input--style-4" type="password" name="password" />
                         </div>
                         <div class="p-t-15">
                             <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
@@ -99,7 +99,11 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
 
+    </script>
     <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->
