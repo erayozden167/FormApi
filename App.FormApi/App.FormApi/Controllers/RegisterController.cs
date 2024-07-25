@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace App.FormApi.Controllers
 {
     [ApiController]
-    [Route("/Register")]
+    [Route("[controller]")]
     public class RegisterController : ControllerBase
     {
         private readonly UserContext _context;
@@ -16,17 +16,17 @@ namespace App.FormApi.Controllers
             _context = context;
         }
 
-        [HttpPost("register")]
-        public async Task<IActionResult> Register(User user)
+        [HttpPost]
+        public async Task<IActionResult> Register([FromForm] User user)
         {
             if (_context.Users.Any(u => u.Email == user.Email))
             {
-                return BadRequest("Email already exists.");
+                return BadRequest(new { error = "Email already exists." }); // JSON formatında hata mesajı döndür
             }
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-            return Ok("User registered successfully.");
+            return Ok(new { message = "User registered successfully." }); // JSON formatında başarı mesajı döndür
         }
     }
 
